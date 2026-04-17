@@ -306,10 +306,10 @@ h1, h2, h3, .tap-text, .polaroid p {
     
     /* Flip Cards & Gallery */
     .cards-grid { flex-direction: column; align-items: center; gap: 30px; }
-    .flip-card { width: 100%; max-width: 280px; height: 320px; animation: none; }
+    .flip-card { width: 100%; max-width: 340px; height: 380px; animation: none; }
     .flip-card.flipped .flip-card-inner, .flip-card:hover .flip-card-inner { transform: rotateY(180deg) scale(1); }
-    .flip-card-front h3 { font-size: 2.5rem; }
-    .flip-card-back p { font-size: 1.3rem; }
+    .flip-card-front h3 { font-size: 3.5rem; }
+    .flip-card-back p { font-size: 1.6rem; }
     
     .gallery-grid { gap: 20px; }
     .polaroid { width: 100%; max-width: 260px; padding: 10px 10px 50px 10px; }
