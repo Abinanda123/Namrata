@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 20th Birthday! 💖</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@400;600&display=swap"
+        rel="stylesheet">
+    <!-- Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Audio Player (Hidden) -->
+    <!-- AUDIO: Place your song file in the assets folder, name it song.mp3 -->
+    <audio id="bg-music" loop>
+        <source src="assets/song.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Fluid Background Particles -->
+    <div class="fluid-bg" id="floating-bg">
+        <div class="blob"></div>
+        <div class="blob"></div>
+    </div>
+
+    <!-- Gift Screen Overlay -->
+    <div id="gift-screen" class="screen">
+        <div class="gift-container" id="gift-box">
+            <div class="gift-box">
+                <div class="gift-lid"></div>
+                <div class="gift-bow"></div>
+            </div>
+            <p class="tap-text">Tap to open your present! 🎁</p>
+        </div>
+    </div>
+
+    <!-- Main Content (Hidden initially) -->
+    <div id="main-content" class="hidden">
+
+        <!-- Hero Section -->
+        <header class="section hero">
+            <!-- INSERT HER NAME HERE -->
+            <h1 class="typing-text">Happy 20th Birthday! 💖</h1>
+            <p style="font-size: 1.8rem; color: var(--dark-pink); margin-top: 20px;">Welcome to your 20s and true
+                adulthood! ✨</p>
+        </header>
+
+        <!-- Letter Section -->
+        <section class="section letter-section hidden-scroll">
+            <div class="letter-card">
+                <h2>Happy 20th to my favorite person...</h2>
+                <!-- INSERT YOUR PERSONAL MESSAGE HERE -->
+                <p>Happy 20th birthday my dear 🎉❤️
+
+                    You’re officially an adult now 😄 I hope you enjoy your day and everything ahead of you. Life will
+                    have its ups and downs, but I know you’ll handle it all 💪
+
+                    This is your time to shine ✨ do what you love, try new things, and keep learning.
+
+                    And remember, I’m always by your side 🤝 I’ll never leave you. No matter what happens, I’ve got you.
+
+                    I’ll always love you ❤️
+
+                    Happy birthday, Tombin 🎂</p>
+            </div>
+        </section>
+
+        <!-- The FIXED Scratch-Off Ticket -->
+        <section class="section scratch-section hidden-scroll">
+            <h2 style="font-size: 3.5rem; margin-bottom: 20px;">A Special Surprise 🎁</h2>
+            <p style="font-size: 1.4rem; color: var(--dark-pink); margin-bottom: 40px; font-weight:600;">Use your finger
+                or mouse to scratch the silver foil!</p>
+
+            <div class="scratch-wrapper">
+                <div class="scratch-container" id="scratch-container">
+                    <div class="prize-content">
+                        <h3>Happy 20th!</h3>
+                        <!-- EDIT YOUR PRIZE HERE -->
+                        <p class="prize-text">Valid for: One massage for whole day & a beautiful dinner night prepare by
+                            Abinanda the great 🥂</p>
+                    </div>
+                    <!-- Fixed HTML5 Canvas -->
+                    <canvas id="scratch-canvas"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline Section: The Story of Us -->
+        <section class="section timeline-section hidden-scroll">
+            <h2>The Story of Us ⏳</h2>
+            <div class="timeline">
+                <!-- TIMELINE ITEM 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>The Day We Met</h3>
+                        <!-- EDIT TEXT HERE -->
+                        <p>The best day of my life, When i see for the first time u were waiting for me with your friend
+                            and i was so nervous to talk to you.</p>
+                    </div>
+                </div>
+                <!-- TIMELINE ITEM 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Our First Date</h3>
+                        <!-- EDIT TEXT HERE -->
+                        <p>Our first date was at the zoo where u loose your shirt.</p>
+                    </div>
+                </div>
+                <!-- TIMELINE ITEM 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Turning 20!</h3>
+                        <!-- EDIT TEXT HERE -->
+                        <p>Celebrating you stepping into adulthood! I couldn't be prouder. 🎂</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reasons Why I Love You (Flip Cards) -->
+        <section class="section reasons-section hidden-scroll">
+            <h2>Reasons I Love You 🥰</h2>
+            <p class="subtitle">Tap or hover the cards to reveal!</p>
+            <div class="cards-grid">
+                <!-- CARD 1 -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <h3>Reason #1</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <!-- EDIT TEXT HERE -->
+                            <p>Your beautiful smile that lights up any room.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- CARD 2 -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <h3>Reason #2</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <!-- EDIT TEXT HERE -->
+                            <p>How incredibly kind and caring you are to everyone.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- CARD 3 -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <h3>Reason #3</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <!-- EDIT TEXT HERE -->
+                            <p>The way you make me feel like the luckiest person alive.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="section gallery-section hidden-scroll">
+            <h2>Our Favorite Memories 📸</h2>
+            <div class="gallery-grid">
+                <!-- PHOTO 1: Replace 'assets/photo1.png' with your picture path -->
+                <div class="polaroid">
+                    <img src="assets/photo1.jpeg" alt="Memory 1">
+                    <p>Us ❤️</p>
+                </div>
+                <!-- PHOTO 2: Replace 'assets/photo2.png' with your picture path -->
+                <div class="polaroid">
+                    <img src="assets/photo2.jpeg" alt="Memory 2">
+                    <p>Cute Moments ✨</p>
+                </div>
+                <!-- PHOTO 3: Replace 'assets/photo3.png' with your picture path -->
+                <div class="polaroid">
+                    <img src="assets/photo3.jpeg" alt="Memory 3">
+                    <p>Forever 🌸</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cake Section -->
+        <section class="section cake-section hidden-scroll">
+            <h2>Make a Wish & Tap the Candle! 🎂</h2>
+            <div class="cake-container" id="cake-container">
+                <div class="cake">
+                    <div class="candle" id="candle">
+                        <div class="flame" id="flame"></div>
+                    </div>
+                    <div class="layer layer-top"></div>
+                    <div class="layer layer-middle"></div>
+                    <div class="layer layer-bottom"></div>
+                </div>
+            </div>
+            <p id="wish-text" class="hidden">I hope all your dreams come true! ✨</p>
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
