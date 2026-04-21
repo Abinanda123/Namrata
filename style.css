@@ -5,6 +5,7 @@
     --card-bg: rgba(255, 255, 255, 0.6);
     --text-color: #5c4147;
     --white: #ffffff;
+    --focus-ring: #ff5d8f;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -14,6 +15,45 @@ body {
     color: var(--text-color);
     font-family: 'Quicksand', sans-serif;
     overflow-x: hidden; scroll-behavior: smooth; position: relative;
+}
+
+/* Skip link for accessibility */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--dark-pink);
+    color: white;
+    padding: 8px 16px;
+    z-index: 2000;
+    transition: top 0.3s;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.skip-link:focus {
+    top: 0;
+    outline: 3px solid var(--white);
+    outline-offset: 2px;
+}
+
+/* Focus styles for interactive elements */
+a:focus, button:focus, [tabindex]:focus {
+    outline: 3px solid var(--focus-ring);
+    outline-offset: 2px;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .fluid-bg, .blob, .particle, .gift-container, .flip-card, .polaroid {
+        animation: none !important;
+    }
 }
 
 h1, h2, h3, .tap-text, .polaroid p {
@@ -57,8 +97,8 @@ h1, h2, h3, .tap-text, .polaroid p {
     background: var(--bg-pink); display: flex; justify-content: center; align-items: center;
     z-index: 1000; transition: opacity 1s ease-in-out, visibility 1s;
 }
-.gift-container { cursor: pointer; text-align: center; animation: fluidBounce 3s infinite ease-in-out; }
-.gift-container:hover { animation: fluidShake 1s infinite ease-in-out; }
+.gift-container { cursor: pointer; text-align: center; animation: fluidBounce 3s infinite ease-in-out; padding: 20px; border-radius: 15px; transition: transform 0.3s, box-shadow 0.3s; }
+.gift-container:hover, .gift-container:focus { transform: scale(1.05); box-shadow: 0 10px 30px rgba(255, 93, 143, 0.3); outline: 3px solid var(--focus-ring); outline-offset: 4px; }
 .gift-box {
     width: 150px; height: 150px; background-color: var(--primary-pink);
     border: 4px solid var(--dark-pink); border-radius: 10px; position: relative;
@@ -78,7 +118,7 @@ h1, h2, h3, .tap-text, .polaroid p {
     border: 8px solid var(--dark-pink); border-radius: 50%; top: -50px;
 }
 .gift-bow::before { left: -50px; } .gift-bow::after { right: -50px; }
-.tap-text { font-size: 2.5rem; margin-top: 50px; }
+.tap-text { font-size: 2.5rem; margin-top: 50px; user-select: none; -webkit-user-select: none; }
 
 @keyframes fluidBounce { 0%, 100% { transform: translateY(0) scale(1, 1); } 50% { transform: translateY(-30px) scale(0.95, 1.05); } }
 @keyframes fluidShake { 0%, 100% { transform: rotate(0deg); } 25% { transform: rotate(-5deg); } 75% { transform: rotate(5deg); } }
@@ -321,4 +361,46 @@ h1, h2, h3, .tap-text, .polaroid p {
     .layer-bottom { width: 180px; }
     .layer-middle { width: 140px; }
     .layer-top { width: 100px; }
+}
+
+/* ========================================= */
+/* PERFORMANCE OPTIMIZATIONS                 */
+/* ========================================= */
+/* Hardware acceleration for animations */
+.blob, .particle, .gift-container, .flip-card-inner, .polaroid {
+    will-change: transform;
+}
+
+/* Remove will-change when animation ends (via JS if needed) */
+@supports (-webkit-backdrop-filter: blur(15px)) {
+    .letter-card {
+        -webkit-backdrop-filter: blur(15px);
+        backdrop-filter: blur(15px);
+    }
+}
+
+/* Better touch targets for mobile */
+@media (max-width: 768px) {
+    .gift-container, .cake-container, .flip-card {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    /* Improve tap feedback */
+    .gift-container:active, .cake-container:active {
+        transform: scale(0.95);
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    :root {
+        --bg-pink: #ffffff;
+        --text-color: #000000;
+        --dark-pink: #c41e3a;
+    }
+    
+    .letter-card, .scratch-wrapper, .timeline-content, .flip-card-front, .flip-card-back, .polaroid {
+        border: 2px solid #000;
+    }
 }
