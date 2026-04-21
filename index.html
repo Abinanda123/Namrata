@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A special 20th birthday celebration website with interactive surprises, memories, and heartfelt messages.">
+    <meta name="theme-color" content="#fff0f3">
     <title>Happy 20th Birthday! 💖</title>
     <link rel="stylesheet" href="style.css">
     <!-- Google Fonts -->
@@ -15,10 +17,12 @@
 </head>
 
 <body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <!-- Audio Player (Hidden) -->
     <!-- AUDIO: Place your song file in the assets folder, name it song.mp3 -->
-    <audio id="bg-music" loop>
+    <audio id="bg-music" loop aria-hidden="true">
         <source src="assets/song.mp3" type="audio/mpeg">
     </audio>
 
@@ -29,9 +33,9 @@
     </div>
 
     <!-- Gift Screen Overlay -->
-    <div id="gift-screen" class="screen">
-        <div class="gift-container" id="gift-box">
-            <div class="gift-box">
+    <div id="gift-screen" class="screen" role="dialog" aria-label="Gift box to open">
+        <div class="gift-container" id="gift-box" tabindex="0" role="button" aria-label="Tap to open your present">
+            <div class="gift-box" aria-hidden="true">
                 <div class="gift-lid"></div>
                 <div class="gift-bow"></div>
             </div>
@@ -43,7 +47,7 @@
     <div id="main-content" class="hidden">
 
         <!-- Hero Section -->
-        <header class="section hero">
+        <header class="section hero" role="banner">
             <!-- INSERT HER NAME HERE -->
             <h1 class="typing-text">Happy 20th Birthday! 💖</h1>
             <p style="font-size: 1.8rem; color: var(--dark-pink); margin-top: 20px;">Welcome to your 20s and true
@@ -51,9 +55,9 @@
         </header>
 
         <!-- Letter Section -->
-        <section class="section letter-section hidden-scroll">
+        <section class="section letter-section hidden-scroll" aria-labelledby="letter-heading">
             <div class="letter-card">
-                <h2>Happy 20th to my favorite person...</h2>
+                <h2 id="letter-heading">Happy 20th to my favorite person...</h2>
                 <!-- INSERT YOUR PERSONAL MESSAGE HERE -->
                 <p>Happy 20th birthday my dear 🎉❤️
 
@@ -71,8 +75,8 @@
         </section>
 
         <!-- The FIXED Scratch-Off Ticket -->
-        <section class="section scratch-section hidden-scroll">
-            <h2 style="font-size: 3.5rem; margin-bottom: 20px;">A Special Surprise 🎁</h2>
+        <section class="section scratch-section hidden-scroll" aria-labelledby="scratch-heading">
+            <h2 id="scratch-heading" style="font-size: 3.5rem; margin-bottom: 20px;">A Special Surprise 🎁</h2>
             <p style="font-size: 1.4rem; color: var(--dark-pink); margin-bottom: 40px; font-weight:600;">Use your finger
                 or mouse to scratch the silver foil!</p>
 
@@ -91,8 +95,8 @@
         </section>
 
         <!-- Timeline Section: The Story of Us -->
-        <section class="section timeline-section hidden-scroll">
-            <h2>The Story of Us ⏳</h2>
+        <section class="section timeline-section hidden-scroll" aria-labelledby="timeline-heading">
+            <h2 id="timeline-heading">The Story of Us ⏳</h2>
             <div class="timeline">
                 <!-- TIMELINE ITEM 1 -->
                 <div class="timeline-item">
@@ -110,7 +114,7 @@
                     <div class="timeline-content">
                         <h3>Our First Date</h3>
                         <!-- EDIT TEXT HERE -->
-                        <p>Our first date was at the zoo where u loose your shirt.</p>
+                        <p>Our first date was at the zoo where you lost your shirt.</p>
                     </div>
                 </div>
                 <!-- TIMELINE ITEM 3 -->
@@ -126,8 +130,8 @@
         </section>
 
         <!-- Reasons Why I Love You (Flip Cards) -->
-        <section class="section reasons-section hidden-scroll">
-            <h2>Reasons I Love You 🥰</h2>
+        <section class="section reasons-section hidden-scroll" aria-labelledby="reasons-heading">
+            <h2 id="reasons-heading">Reasons I Love You 🥰</h2>
             <p class="subtitle">Tap or hover the cards to reveal!</p>
             <div class="cards-grid">
                 <!-- CARD 1 -->
@@ -170,30 +174,30 @@
         </section>
 
         <!-- Gallery Section -->
-        <section class="section gallery-section hidden-scroll">
-            <h2>Our Favorite Memories 📸</h2>
+        <section class="section gallery-section hidden-scroll" aria-labelledby="gallery-heading">
+            <h2 id="gallery-heading">Our Favorite Memories 📸</h2>
             <div class="gallery-grid">
                 <!-- PHOTO 1: Replace 'assets/photo1.png' with your picture path -->
                 <div class="polaroid">
-                    <img src="assets/photo1.jpeg" alt="Memory 1">
+                    <img src="assets/photo1.jpeg" alt="Photo of us - Memory 1">
                     <p>Us ❤️</p>
                 </div>
                 <!-- PHOTO 2: Replace 'assets/photo2.png' with your picture path -->
                 <div class="polaroid">
-                    <img src="assets/photo2.jpeg" alt="Memory 2">
+                    <img src="assets/photo2.jpeg" alt="Cute moments together - Memory 2">
                     <p>Cute Moments ✨</p>
                 </div>
                 <!-- PHOTO 3: Replace 'assets/photo3.png' with your picture path -->
                 <div class="polaroid">
-                    <img src="assets/photo3.jpeg" alt="Memory 3">
+                    <img src="assets/photo3.jpeg" alt="Forever memories - Memory 3">
                     <p>Forever 🌸</p>
                 </div>
             </div>
         </section>
 
         <!-- Cake Section -->
-        <section class="section cake-section hidden-scroll">
-            <h2>Make a Wish & Tap the Candle! 🎂</h2>
+        <section class="section cake-section hidden-scroll" aria-labelledby="cake-heading">
+            <h2 id="cake-heading">Make a Wish <h2>Make a Wish & Tap the Candle! 🎂</h2> Tap the Candle! 🎂</h2>
             <div class="cake-container" id="cake-container">
                 <div class="cake">
                     <div class="candle" id="candle">
